@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Muut Pankit</title>
+    <script src="https://use.fontawesome.com/548e2a50d8.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-app="KirjeApp" ng-controller="otherBankController" ng-cloak>
+    <div class="main">
+        <div class="header">
+            <h1>Kirjeprintteri Muut Pankit</h1>
+        </div>
+        <div class="form-container">
+            <div ng-show="!selectedBank">
+                <h4>Valitse pankki</h4>
+                <md-input-container class="bank-selection">
+                    <md-select ng-model="selectedBank" placeholder="Valitse pankki" md-on-close="selectBank(selectedBank)">
+                        <md-option ng-value="otherbank" ng-repeat="otherbank in otherBanks">{{otherbank.bankname}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div ng-show="selectedBank && !selectedMessage">
+                Pankki: {{selectedBank.bankname}}
+                <h4>Valitse viesti</h4>
+                <md-input-container class="message-selection">
+                    <md-select ng-model="selectedMessage" placeholder="Valitse viesti" md-on-close="selectMessage(selectedMessage)">
+                        <md-option ng-value="message" ng-repeat="message in messages">{{message.name}}</md-option>
+                    </md-select>
+                </md-input-container> <br/>
+            </div>
+            <div ng-show="selectedMessage">
+                <h4 style="color:forestgreen">Valmis tulostamaan <i class="fa fa-check" aria-hidden="true"></i></h4>
+                <div class="address-details">
+                    Pankki: {{selectedBank.bankname}}<br/> Viesti: {{selectedMessage.name}}
+                    <hr>
+                    <md-button class="md-raised accent" ng-click="print()">Tulosta</md-button>
+                </div>
+
+            </div>
+            <hr>
+            <md-button class="md-raised" ng-click="reset()">Alkuun</md-button>
+            <md-button class="md-raised" ng-click="frontPage()">Etusivulle</md-button>
+        </div>
+
+
+    </div>
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js "></script>
+    <script src="lib/banks2.js "></script>
+    <script src="lib/app.js "></script>
+    <script src="lib/otherBankController.js"></script>
+</body>
+
+</html>

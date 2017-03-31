@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Proza+Libre);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  background: #607D8B;
+  color: #212121;
+  margin: 0;
+  font-family: 'Proza Libre', sans-serif; }
+
+@media screen and (max-width: 1000px) {
+  .main {
+    width: 100%; } }
+
+@media screen and (min-width: 1000px) {
+  .main {
+    width: 50%; } }
+
+.main {
+  height: 100vh;
+  margin: 0 auto;
+  background: #ffe;
+  color: #212121; }
+
+.header {
+  text-align: center;
+  padding: 20px;
+  background: #303F9F; }
+  .header h1 {
+    color: #FFFFFF;
+    margin: 0; }
+
+.form-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+  .form-container form {
+    width: 100%; }
+  .form-container md-input-container input {
+    width: 100%; }
+
+.office-selection {
+  width: 50%; }
+
+.message-selection {
+  width: 50%; }
+
+.reset {
+  padding: 20px 0;
+  width: 100%;
+  overflow: hidden;
+  float: none; }
+
+.address-details {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  background: #303F9F;
+  color: #FFFFFF; }
+
+hr {
+  float: none; }
+
+.other-bank-info {
+  padding: 10px;
+  width: 40%;
+  margin: 5px 10px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: #607D8B; }
+
+.info-container {
+  height: 240px;
+  color: #FFFFFF; }
+
+.link-btn {
+  margin-bottom: 20px; }
+
+.first-class {
+  float: left; }
+
+.second {
+  float: right; }
+
+.accent {
+  background-color: #607D8B !important;
+  color: #FFFFFF !important; }
+
+textarea {
+  width: 80%; }
+
+.manual-input-field {
+  width: 70%;
+  margin: 5px auto;
+  overflow: hidden; }
+  .manual-input-field input {
+    width: 99%; }
+  .manual-input-field textarea {
+    resize: none;
+    width: 98%; }

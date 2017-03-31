@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Proza+Libre);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@media print {
+    @page {
+        size: auto;
+        /* auto is the initial value */
+        margin: 0mm;
+        /* this affects the margin in the printer settings */
+    }
+    html {
+        background-color: #FFFFFF;
+        margin: 0px;
+        /* this affects the margin on the HTML before sending to printer */
+    }
+    body {
+        border: solid 1px white;
+        margin: 10mm 15mm 10mm 15mm;
+        /* margin you want for the content */
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    img {
+        margin-left: 3px;
+    }
+    .numero {
+        position: absolute;
+        bottom: -500px;
+    }
+    .header-left {
+        position: absolute;
+        top: 20px;
+        float: left;
+    }
+    .header-right {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        float: right;
+    }
+    .address-div {
+        position: absolute;
+        top: 150px;
+    }
+    .message-div {
+        position: absolute;
+        top: 400px;
+    }
+    .form-div {
+        visibility: hidden;
+    }
+}

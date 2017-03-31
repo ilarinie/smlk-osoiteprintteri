@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Käsinsyöttö</title>
+    <script src="https://use.fontawesome.com/548e2a50d8.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-app="KirjeApp" ng-controller="manualFormController" ng-cloak>
+    <div class="main">
+        <div class="header">
+            <h1>Kirjeprintteri Käsinsyöttö</h1>
+        </div>
+        <div class="manual-form-container">
+            <div class="manual-input-field">
+                <input type="text" ng-model="line1" placeholder="Osoiterivi 1">
+            </div>
+            <div class="manual-input-field">
+                <input type="text" ng-model="line2" placeholder="Osoiterivi 2">
+            </div>
+            <div class="manual-input-field">
+                <input type="text" ng-model="address" placeholder="Katuosoite">
+            </div>
+            <div class="manual-input-field">
+                <input type="text" ng-model="city" placeholder="Postinumero ja -toimipaikka">
+            </div>
+            <div class="manual-input-field">
+                <textarea rows="8" ng-model="message" placeholder="Viesti"></textarea>
+            </div>
+            <md-button class="md-raised" ng-click="print()">Tulosta</md-button>
+        </div>
+        <hr>
+        <md-button class="md-raised" ng-click="reset()">Alkuun</md-button>
+        <md-button class="md-raised" ng-click="frontPage()">Etusivulle</md-button>
+    </div>
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js "></script>
+    <script src="lib/banks2.js "></script>
+    <script src="lib/app.js "></script>
+    <script src="lib/manualFormController.js"></script>
+</body>
+
+</html>

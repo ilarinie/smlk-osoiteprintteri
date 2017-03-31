@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Print</title>
+    <link rel="stylesheet" href="print.css">
+</head>
+
+<body>
+    <!-- PRINTED CONTENT START -->
+    <div class="printed-content">
+        <div class="header-left"> Oy Samlink Ab </div>
+        <div class="header-right"> <span id="date">{{date}}</span> </div>
+        <div class="address-div">
+            <table>
+                <tr>
+                    <td> <span class="bank-name" id="bank">{{name1}}</span> </td>
+                </tr>
+                <tr>
+                    <td> <span class="bank-office" id="office">{{name2}}</span> </td>
+                </tr>
+                <tr>
+                    <td> <span class="bank-address" id="address">{{streetaddress}}</span> </td>
+                </tr>
+                <tr>
+                    <td> <span class="bank-city" id="city">{{cityaddress}}</span> </td>
+                </tr>
+            </table>
+        </div>
+        <div class="message-div"> <span id="hi">{{hello}}</span>
+            <br />
+            <br />
+            <p id="message">{{message}}</p>
+            <br />
+            <br /> <span id="regards">{{regards}}</span>
+            <br/>
+            <br /> <img src="samlink.png">
+            <div class="numero"> <span id="printnumber">{{orignumber}}</span> </div>
+        </div>
+    </div>
+
+
+    <script src="print.js"></script>
+</body>
+
+</html>

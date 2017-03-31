@@ -1,0 +1,139 @@
+$primary-color-dark: #303F9F;
+$primary-color: #3F51B5;
+$primary-color-light: #607D8B;
+$primary-color-text: #FFFFFF;
+$accent-color: #607D8B;
+$primary-text-color: #212121;
+$secondary-text-color: #757575;
+$divider-color: #BDBDBD;
+@import url(https://fonts.googleapis.com/css?family=Proza+Libre);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    background: $primary-color-light;
+    color: $primary-text-color;
+    margin: 0;
+    font-family: 'Proza Libre', sans-serif;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .main {
+        width: 50%;
+    }
+}
+
+.main {
+    height: 100vh;
+    margin: 0 auto;
+    background: #ffe;
+    color: $primary-text-color;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background: $primary-color-dark;
+    h1 {
+        color: $primary_color_text;
+        margin: 0;
+    }
+}
+
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    form {
+        width: 100%;
+    }
+    md-input-container {
+        input {
+            width: 100%;
+        }
+    }
+}
+
+.banknumber-input {}
+
+.office-selection {
+    width: 50%;
+}
+
+.message-selection {
+    width: 50%;
+}
+
+.reset {
+    padding: 20px 0;
+    width: 100%;
+    overflow: hidden;
+    float: none;
+}
+
+.address-details {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+    background: $primary-color-dark;
+    color: $primary-color-text;
+}
+
+hr {
+    float: none;
+}
+
+.other-bank-info {
+    padding: 10px;
+    width: 40%;
+    margin: 5px 10px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: $primary-color-light;
+}
+
+.info-container {
+    height: 240px;
+    color: $primary-color-text;
+}
+
+.link-btn {
+    margin-bottom: 20px;
+}
+
+.first-class {
+    float: left;
+}
+
+.second {
+    float: right;
+}
+
+.accent {
+    background-color: $accent-color !important;
+    color: $primary-color-text !important;
+}
+
+textarea {
+    width: 80%;
+}
+
+.manual-input-field {
+    width: 70%;
+    margin: 5px auto;
+    overflow: hidden;
+    input {
+        width: 99%;
+    }
+    textarea {
+        resize: none;
+        width: 98%;
+    }
+}

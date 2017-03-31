@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ilarin kirjeprintteri</title>
+    <script src="https://use.fontawesome.com/548e2a50d8.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-app="KirjeApp" ng-controller="KirjeController" ng-cloak>
+    <div class="main">
+        <div class="header">
+            <h1>Kirjeprintteri POP ja SP</h1>
+        </div>
+        <div class="form-container">
+
+            <form name="bankForm">
+
+
+
+
+                <div ng-show="!showOfficeSelect">
+                    <h4>1/4 Aloita syöttämällä pankin numero</h4>
+                    <md-input-container class="banknumber-input">
+                        <label>Pankin Numero</label>
+                        <input name="bankNumber" ng-model="bankNumber" required maxlength="4" md-maxlength="4" maxlenght="4" minlength="4" ng-keyup="filterBanks(bankNumber)">
+                    </md-input-container> <br/>
+                    <div ng-if="bankNotFound">
+                        {{bankNotFound}}
+                    </div>
+                    <hr />
+                    <div class="info-container">
+                        <div class="other-bank-info first-class">
+                            <md-button class="md-raised md-primary link-btn" ng-click="otherBanks()">Muut Pankit</md-button>
+                            <br/> Pankki ei ole SP tai POP? Tästä pääset lähettämään kirjeen muihin pankkeihin. (Aktia, Handelsbanken, OP, Danske, Nordea yms.)
+                        </div>
+                        <div class="other-bank-info second">
+                            <md-button class="md-raised md-primary link-btn" ng-click="manualForm()">Käsinsyöttö</md-button>
+                            <br/> Haluatko syöttää osoitteen käsin? - Ei vielä implementoitu
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="banks-list" ng-show="showOfficeSelect && !office && !merged">
+                    <h4 ng-if="showOfficeSelect && !office">2/4 Valitse konttori</h4>
+                    <span>Pankki: {{bank.number}} - {{bank.bankname}}</span><br/>
+                    <hr>
+                    <md-input-container class="office-selection">
+                        <md-select ng-model="officeName" placeholder="Valitse konttori" md-on-close="chooseOffice(officeName)">
+                            <md-option ng-value="officeselect.officename" ng-repeat="officeselect in shownOffices">{{ officeselect.office }} - {{ officeselect.officename }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div ng-if="merged && !selectedMessage">
+                    Syöttämäsi pankkinumeron pankki on yhdistynyt uuteen pankkiin {{bank.bankname}}. Kirje lähetetään uuden pankin pääkonttoriin.
+                </div>
+                <div ng-if="office && !selectedMessage" class="message-select">
+                    <h4 ng-if="office && !selectedMessage">3/4 Valitse viesti</h4>
+                    <span>Pankki: {{bank.number}} - {{bank.bankname}}</span> <br/>
+                    <span>Konttori: {{office.office}} - {{office.officename}}</span> <br/>
+                    <hr>
+
+                    <md-input-container ng-if="manualMessageInput == 'Kirjoita oma viesti'" class="message-selection">
+                        <md-select ng-model="selectedMessage" placeholder="Valitse viesti" md-on-close="selectMessage(selectedMessage)">
+                            <md-option ng-value="message" ng-repeat="message in messages">{{message.name}}</md-option>
+                        </md-select>
+                    </md-input-container> <br/>
+
+                    <md-button class="md-raised" ng-click="toggleManualMessage()">{{manualMessageInput}}</md-button>
+                    <div ng-if="manualMessageInput == 'Valitse valmis viesti'">
+                        <br/><textarea ng-if="manualMessageInput" ng-model="$parent.manualMessage" rows="8" placeholder="Voit kirjoittaa vapaavalintaisen viestin tähän"></textarea>
+                        <br/>
+                        <md-button class="md-raised" ng-click="setManualMessage(manualMessage)">Seuraava</md-button>
+                    </div>
+
+
+                </div>
+                <div ng-if="selectedMessage">
+                    <h4 ng-if="selectedMessage" style="color:forestgreen">4/4 Valmis tulostamaan <i class="fa fa-check" aria-hidden="true"></i></h4>
+                    <div class="address-details">
+                        <span>{{bank.number}} - {{bank.bankname}}</span><br/>
+                        <span>{{office.office}} - {{office.officename}}</span> <br/>
+                        <span>{{office.address}}</span><br/>
+                        <span>{{office.city}}</span><br/>
+                        <span>Viesti: {{selectedMessage.name }}</span> <br/>
+                        <hr>
+                        <md-button class="md-raised accent" ng-click="print()"> <i class="fa fa-print" aria-hidden="true"></i> Tulosta</md-button>
+                    </div>
+                </div>
+                <div class="reset">
+                    <md-button class="md-raised " ng-click="reset() "> <i class="fa fa-eraser" aria-hidden="true"></i> Alkuun</md-button>
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js "></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js "></script>
+    <script src="lib/banks2.js "></script>
+    <script src="lib/app.js "></script>
+</body>
+
+</html>
