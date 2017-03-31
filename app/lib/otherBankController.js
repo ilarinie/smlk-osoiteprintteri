@@ -68,12 +68,16 @@ app.controller('otherBankController', ['$scope', function($scope) {
     }
 
     $scope.print = function() {
-        window.open("lib/print.html?bankname=" + $scope.selectedBank.bankname + "&office=&address=" + $scope.selectedBank.address + "&city=" + $scope.selectedBank.city + "&orignumber=&message=" + $scope.selectedMessage.message);
-
+        chrome.app.window.create("lib/print.html?bankname=" + $scope.selectedBank.bankname + "&office=&address=" + $scope.selectedBank.address + "&city=" + $scope.selectedBank.city + "&orignumber=&message=" + $scope.selectedMessage.message, {
+          'outerBounds': {
+            'width': 900,
+            'height': 900
+          }
+        });
     }
 
     $scope.frontPage = function() {
-        window.location = "index.html";
+      startFrontPage();
     }
 
 

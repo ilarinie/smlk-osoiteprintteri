@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Käsinsyöttö</title>
-    <script src="https://use.fontawesome.com/548e2a50d8.js"></script>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="lib/vendor/548e2a50d8.js"></script>
+    <link rel="stylesheet" href="lib/vendor/angular-material.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -30,18 +30,18 @@
             <div class="manual-input-field">
                 <textarea rows="8" ng-model="message" placeholder="Viesti"></textarea>
             </div>
-            <md-button class="md-raised" ng-click="print()">Tulosta</md-button>
+            <md-button class="md-raised" ng-disabled="filled()" ng-click="print()">Tulosta</md-button>
         </div>
         <hr>
         <md-button class="md-raised" ng-click="reset()">Alkuun</md-button>
         <md-button class="md-raised" ng-click="frontPage()">Etusivulle</md-button>
     </div>
 
-    <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js "></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js "></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js "></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js "></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js "></script>
+    <script src=" lib/vendor/angular.min.js "></script>
+    <script src="lib/vendor/angular-animate.min.js "></script>
+    <script src="lib/vendor/angular-aria.min.js "></script>
+    <script src="lib/vendor/angular-messages.min.js "></script>
+    <script src="lib/vendor/angular-material.min.js "></script>
     <script src="lib/banks2.js "></script>
     <script src="lib/app.js "></script>
     <script src="lib/manualFormController.js"></script>

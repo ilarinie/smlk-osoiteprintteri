@@ -1,0 +1,19 @@
+{
+  "name": "Ilarin osoiteprintteri",
+  "description": "Tulostelee kivoja kansilehtiä kirjeisiin",
+  "version": "0.5",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["start.js", "lib/app.js", "lib/banks2.js", "lib/manualFormController.js", "lib/otherBankController.js", "lib/print.js"]
+    }
+  },
+  "permissions": [
+    "https://fonts.googleapis.com/*",
+    "app.window"
+  ],
+  "icons": {
+    "512": "letter.png"
+  }
+
+}

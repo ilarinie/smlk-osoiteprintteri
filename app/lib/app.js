@@ -14,10 +14,18 @@ app.controller('KirjeController', ['$scope', function($scope) {
     $scope.manualMessage = "";
 
 
-    $scope.messages = [
-        { name: "Suoramaksuvaltakirja", message: "Ohessa meille postissa saapunut, teidän asiakkaanne suoramaksuvaltakirja" },
-        { name: "Maksukortti", message: "Ohessa meille postissa saapunut, teidän asiakkaanne maksukortti" },
-        { name: "Maksupalvelutoimeksianto", message: "Ohessa meille postissa saapunut, teidän asiakkaanne maksupalvelutoimeksianto" }
+    $scope.messages = [{
+            name: "Suoramaksuvaltakirja",
+            message: "Ohessa meille postissa saapunut, teidän asiakkaanne suoramaksuvaltakirja"
+        },
+        {
+            name: "Maksukortti",
+            message: "Ohessa meille postissa saapunut, teidän asiakkaanne maksukortti"
+        },
+        {
+            name: "Maksupalvelutoimeksianto",
+            message: "Ohessa meille postissa saapunut, teidän asiakkaanne maksupalvelutoimeksianto"
+        }
     ];
 
 
@@ -115,13 +123,35 @@ app.controller('KirjeController', ['$scope', function($scope) {
     }
 
     $scope.print = function() {
-        window.open("lib/print.html?bankname=" + $scope.bank.bankname + "&office=" + $scope.office.officename + "&address=" + $scope.office.address + "&city=" + $scope.office.city + "&message=" + $scope.selectedMessage.message + "&orignumber=" + $scope.origNumber, "print", "_blank");
+        chrome.app.window.create("lib/print.html?bankname=" + $scope.bank.bankname + "&office=" + $scope.office.officename + "&address=" + $scope.office.address + "&city=" + $scope.office.city + "&message=" + $scope.selectedMessage.message + "&orignumber=" + $scope.origNumber, {
+            'outerBounds': {
+                'width': 900,
+                'height': 900
+            }
+        });
     }
     $scope.otherBanks = function() {
-        window.location = "other_banks.html";
+      var current = chrome.app.window.current();
+      current.close();
+        chrome.app.window.create("other_banks.html", {
+          'outerBounds': {
+            'width': 700,
+            'height': 700
+          },
+          'resizable': false
+        });
     }
     $scope.manualForm = function() {
-        window.location = "manual_form.html";
+      var current = chrome.app.window.current();
+      current.close();
+      chrome.app.window.create("manual_form.html", {
+        'outerBounds': {
+          'width': 700,
+          'height': 700
+        },
+        'resizable': false
+      });
+
     }
 
     $scope.toggleManualMessage = function() {
@@ -133,10 +163,25 @@ app.controller('KirjeController', ['$scope', function($scope) {
 
     }
     $scope.setManualMessage = function(message) {
-        $scope.selectedMessage = { name: "manual", message: message };
+        $scope.selectedMessage = {
+            name: "manual",
+            message: message
+        };
     }
 
 }]);
+
+function startFrontPage() {
+  var current = chrome.app.window.current();
+  current.close();
+  chrome.app.window.create("/index.html", {
+    'outerBounds': {
+      'width': 700,
+      'height': 700
+    },
+    'resizable': false
+  })
+}
 
 
 
