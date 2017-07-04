@@ -26,11 +26,18 @@
             <div ng-show="selectedBank && !selectedMessage">
                 Pankki: {{selectedBank.bankname}}
                 <h4>Valitse viesti</h4>
-                <md-input-container class="message-selection">
-                    <md-select ng-model="selectedMessage" placeholder="Valitse viesti" md-on-close="selectMessage(selectedMessage)">
-                        <md-option ng-value="message" ng-repeat="message in messages">{{message.name}}</md-option>
-                    </md-select>
-                </md-input-container> <br/>
+                    <md-input-container ng-if="manualMessageInput == 'Kirjoita oma viesti'" class="message-selection">
+                        <md-select ng-model="selectedMessage" placeholder="Valitse viesti" md-on-close="selectMessage(selectedMessage)">
+                            <md-option ng-value="message" ng-repeat="message in messages">{{message.name}}</md-option>
+                        </md-select>
+                    </md-input-container> <br/>
+                    <md-button class="md-raised" ng-click="toggleManualMessage()">{{manualMessageInput}}</md-button>
+                    <div ng-if="manualMessageInput == 'Valitse valmis viesti'">
+                        <br/><textarea ng-if="manualMessageInput" ng-model="$parent.manualMessage" rows="8" placeholder="Voit kirjoittaa vapaavalintaisen viestin tähän"></textarea>
+                        <br/>
+                        <md-button class="md-raised" ng-click="setManualMessage(manualMessage)">Seuraava</md-button>
+                    </div>
+                 <br/>
             </div>
             <div ng-show="selectedMessage">
                 <h4 style="color:forestgreen">Valmis tulostamaan <i class="fa fa-check" aria-hidden="true"></i></h4>

@@ -1,5 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Proza+Libre);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+html {
+    font-family: 'Work Sans', sans-serif;
+}
 @media print {
     @page {
         size: auto;
@@ -15,8 +18,6 @@
     body {
         border: solid 1px white;
         margin: 10mm 15mm 10mm 15mm;
-        /* margin you want for the content */
-        font-family: "Times New Roman", Georgia, Serif;
     }
     img {
         margin-left: 3px;
@@ -38,7 +39,7 @@
     }
     .address-div {
         position: absolute;
-        top: 150px;
+        top: 130px;
     }
     .message-div {
         position: absolute;

@@ -34,7 +34,6 @@ app.controller('KirjeController', ['$scope', function($scope) {
         $scope.origNumber = null;
         $scope.bankNotFound = null;
         $scope.manualMessageInput = "Kirjoita oma viesti";
-        console.log("reset")
     }
 
 
@@ -45,7 +44,6 @@ app.controller('KirjeController', ['$scope', function($scope) {
             $scope.bank = null;
             $scope.office = null;
             $scope.bankNotFound = null;
-            console.log("filter returns empty list with value " + banknumber);
             return;
         }
         $scope.origNumber = banknumber;
@@ -109,9 +107,7 @@ app.controller('KirjeController', ['$scope', function($scope) {
         }
     }
     $scope.selectMessage = function(message) {
-        console.log($scope.selectedMessage);
         $scope.selectedMessage = message;
-        console.log($scope.selectedMessage);
     }
 
     $scope.print = function() {
@@ -130,7 +126,6 @@ app.controller('KirjeController', ['$scope', function($scope) {
         } else {
             $scope.manualMessageInput = "Kirjoita oma viesti";
         }
-
     }
     $scope.setManualMessage = function(message) {
         $scope.selectedMessage = { name: "manual", message: message };

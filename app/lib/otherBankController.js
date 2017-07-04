@@ -1,5 +1,21 @@
 app.controller('otherBankController', ['$scope', function($scope) {
 
+
+    $scope.manualMessageInput = "Kirjoita oma viesti";
+    $scope.manualMessage = "";
+
+    $scope.toggleManualMessage = function() {
+        if ($scope.manualMessageInput == "Kirjoita oma viesti") {
+            $scope.manualMessageInput = "Valitse valmis viesti";
+        } else {
+            $scope.manualMessageInput = "Kirjoita oma viesti";
+        }
+    }
+
+    $scope.setManualMessage = function(message) {
+        $scope.selectedMessage = { name: "manual", message: message };
+    }
+
     $scope.otherBanks = [{
             "id": "op",
             "bankname": "Op-Palvelut Oy",
@@ -51,9 +67,7 @@ app.controller('otherBankController', ['$scope', function($scope) {
     ];
 
     $scope.selectMessage = function(message) {
-        console.log($scope.selectedMessage);
         $scope.selectedMessage = message;
-        console.log($scope.selectedMessage);
     }
 
     $scope.selectedBank = null;
